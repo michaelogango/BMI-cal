@@ -7,21 +7,24 @@ try{
     (async()=>{
         const browser=await Puppeteer.launch({headless:true})
         const page =await browser.newPage()
-        await page.goto('https://www.apple.com')
+        await page.goto('https://bmi-calculator-react-project.herokuapp.com')
 
-        const searchInput=await page.$('#twotabsearchtextbox')
-        await searchInput.type('Testing Book')
+        await page.screenshot({path: 'example.png'});
 
-        const searchBtn=await page.$('submit')
+        // const searchInput=await page.$('#twotabsearchtextbox')
+        // await searchInput.type('Testing Book')
+
+        const pageTitle= await page.title()
+
+        assert(pageTitle=='Heroku | Welcome to your new app!')
+        console.log('Title matched successfully')
+
+        const searchBtn=await page.$('Reload')
         await searchBtn.click()
 
         await page.waitForTimeout(2000)
 
-        const pageTitle= await page.title()
-
-        assert(pageTitle=='BMI Calculator')
-        console.log('Title matched successfully')
-
+        
         await browser.close()
     }
     
