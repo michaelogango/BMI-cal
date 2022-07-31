@@ -1,22 +1,14 @@
+import { Component } from "react";
 import React, {useState}from "react";
 import './index.css'
 import './calculate.js'
 
-const express = require('express');
-const app = express();
- const port =process.env.PORT || 3002;
- const bodyParser = require('body-parser');
- const urlEncodedParser = bodyParser.urlencoded({extended: false});
-
-
-app.use(express.static('public'));
-
-app.get('/contacts', function(request, response){
-    response.render('contact_us')
-  })
-
 
 function App() {
+
+  
+
+  
   //State
 const [weight, SetWeight]= useState()
 const [height, SetHeight]= useState()
