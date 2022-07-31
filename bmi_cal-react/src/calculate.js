@@ -18,9 +18,9 @@ const [message, Setmessage]= useState(' ')
   
       //logic for message
   
-      if(bmi<25){
+      if(bmi<19){
         Setmessage('You are underweight')
-      }else if(bmi>=25 && bmi <30){
+      }else if(bmi>=19 && bmi <26){
         Setmessage('you are a healthy weight')
       }else{
         Setmessage('you are overweight')

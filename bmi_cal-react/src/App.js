@@ -18,8 +18,8 @@ import './calculate.js'
 
 function App() {
   //State
-const [weight, SetWeight]= useState(0)
-const [height, SetHeight]= useState(0)
+const [weight, SetWeight]= useState()
+const [height, SetHeight]= useState()
 const [bmi, Setbmi]= useState(' ')
 const [message, Setmessage]= useState(' ')
 
@@ -54,11 +54,11 @@ let Reload=()=>{
         <form onSubmit={calcbmi}>
           <div>
             <label>Weight(kgs)</label>
-            <input value={weight} onChange={(e)=> SetWeight(e.target.value)} />
+            <input value={weight} placeholder="Enter weight in kgs" onChange={(e)=> SetWeight(e.target.value)} />
           </div>
           <div>
             <label>Height(m)</label>
-            <input value={height}onChange={(event)=> SetHeight(event.target.value)}/>
+            <input value={height} placeholder="Enter height in m" onChange={(event)=> SetHeight(event.target.value)}/>
           </div>
           <div>
             <button className="btn" type="submit">submit</button>
