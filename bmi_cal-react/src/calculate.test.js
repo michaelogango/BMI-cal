@@ -1,6 +1,32 @@
 const {Bmi_cal}=require('./calculate');
 
-test.each([[80,1.5,"overweight"],[60,1.5,"perfect weight"],[40,1.5,"under"]])(
-    "%1 and %1 equals %i bmi", (weight,height,expected)=>{
-        expect(Bmi_cal(weight,height)).toBe(expected)
-})
+
+//test the overweight
+test("should be over 25", ()=>{
+    const weight=80
+    const height=1.5;
+    const bmi=weight/(height*height);
+    expect(bmi).toBeLessThanOrEqual(35.6)
+    
+}),
+test("should be NaN", ()=>{
+    const weight=0
+    const height=0;
+    const bmi=weight/(height*height);
+    expect(bmi).toBeLessThanOrEqual(NaN)
+    
+}), 
+test("should be equal 26.7", ()=>{
+    const weight=60
+    const height=1.5;
+    const bmi=weight/(height*height);
+    expect(bmi).toBeLessThanOrEqual(26.7)
+    
+}), 
+test("should equal 22.2 = healthy weight", ()=>{
+    const weight=50
+    const height=1.5;
+    const bmi=weight/(height*height);
+    expect(bmi).toBeLessThanOrEqual(22.2222222222222222)
+    
+});
