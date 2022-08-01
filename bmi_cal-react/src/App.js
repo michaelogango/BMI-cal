@@ -1,5 +1,5 @@
 import { Component } from "react";
-import React, {useState}from "react";
+import React, {useState,useEffect}from "react";
 import './index.css'
 import './calculate.js'
 
@@ -10,10 +10,17 @@ function App() {
 
   
   //State
+const[apiReponse,SetapiResponse]=useState('')  
 const [weight, SetWeight]= useState()
 const [height, SetHeight]= useState()
 const [bmi, Setbmi]= useState(' ')
 const [message, Setmessage]= useState(' ')
+
+useEffect(()=>{
+  fetch("http://localhost:5000/testapi")
+  .then(res=>res.text())
+  .then(res=>SetapiResponse(res))
+},[]);
 
 const calcbmi=(event)=> {
   //prevent submitting
@@ -61,8 +68,10 @@ let Reload=()=>{
         <div className="results">
           <h3>Your BMI is: {bmi}</h3>
           <p>{message}</p>
+          <p>{apiReponse}</p>
           <div className="measure">
           </div>
+          
           
         </div>
       </div>
