@@ -4,7 +4,7 @@
   "description": "root package.json file",
   "main": "App.js",
   "scripts": {
-    "start": "node App.js",
+    "start": "node /bmi_cal-react/src/App.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
